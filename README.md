@@ -5,7 +5,7 @@ This is a web application to share photos and was generated with Python 3, Djang
 
 # Project Description
 *******************
-Users can register a new account, log in it, upload images. User can also comment, like and follow other user's accounts. 
+Users can register a new account, log in it, upload images and edit profile. User can also comment, like and follow other user's accounts. 
 # Setup/Installation Requirements
 **********************************
 1. Internet connection.
@@ -18,15 +18,15 @@ Users can register a new account, log in it, upload images. User can also commen
 # Specifications
 |Given|When|Then|
 |-----|----|----|
-|Run Page|Loading Page|View Different Images|
-|Search input|Education|View education images from different locations|
-|Search input|Animals|View different animal images|
-|Click photo|User click an image|Enlarge the image and show the description and location|
-|Click link|User click and image link|Copy link image |
+|Run Page|Loading Page|View registration form|
+|Registration Load|Fill registration form|Send confirmation email|
+|Login the app|Enter user name and password|Home page load|
+|Click Profile|Edit user own profile|User profile updated|
+|Comment|User comments other posts|Other users post updated|
 
 
 # Author information
-My name is Dayud Mohamed Farah, I am one the Moringa Core class 14.
+My name is Dayud Mohamed Farah, I am one the Moringa Core class MC14.
 
 # Contact Information
 Dayud Mohamed Farah  Email: voiphandy@gmail.company
