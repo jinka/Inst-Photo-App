@@ -7,7 +7,9 @@ class Image(models.Model):
     name=models.CharField(max_length=100)
     caption=models.CharField(max_length=100)
     date_created=models.DateTimeField(default=timezone.now)
+    likes=models.IntegerField(default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
 
     def __str__(self):
         return self.name
