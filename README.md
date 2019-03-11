@@ -7,7 +7,7 @@ This is a web application to share photos and was generated with Python 3, Djang
 *******************
 Users can register a new account, log in it, upload images. User can also comment, like and follow other user's accounts. 
 # Setup/Installation Requirements
-*********************************
+**********************************
 1. Internet connection.
 2. Python 3, Django installation.
 3. Clone it using ***git clone https://github.com/jinka/Inst-Photo-App.git***
