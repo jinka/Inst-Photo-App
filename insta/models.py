@@ -10,9 +10,14 @@ class Image(models.Model):
     likes=models.IntegerField(default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    class Meta:
+       ordering = ['name']
 
     def __str__(self):
         return self.name
     
+    def save_image(self):
+        self.save()
+
     
   
