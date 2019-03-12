@@ -9,3 +9,10 @@ class CategoryTestClass(TestCase):
 # Testing  instance
 def test_instance(self):
     self.assertTrue(isinstance(self.daudi,Image))
+
+
+# Testing Save Method
+def test_save_method(self):
+    self.daudi.save_editor()
+    names = Image.objects.all()
+    self.assertTrue(len(names) > 0)
