@@ -40,7 +40,7 @@
                         <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>  
                         {% else %}
                        <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                        <a class="nav-item nav-link" href="{% url 'logout' %}">Register</a>
+                        <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
                         {% endif %}
                     </div>
                 </div>
@@ -49,7 +49,7 @@
     </header>
     <main role="main" class="container">
         <div class="row">
-            <div class="col-md-8">
+            <!-- <div class="col-md-8"> -->
                 {% if messages %}
                 {% for message in messages %}
                 <div class="alert alert-{{ message.tags}}">
@@ -60,7 +60,7 @@
                 {% block content %}{% endblock %}
             </div>
 
-        </div>
+        <!-- </div> -->
     </main>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

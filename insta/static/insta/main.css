@@ -13,9 +13,11 @@ body {
   }
   
   .bg-steel {
-    background-color: #5f788a;
+    background-color: #1494f0;
   }
-  
+  .nav{
+    min-height: 80px;
+  }
   .site-header .navbar-nav .nav-link {
     color: #cbd5db;
   }
@@ -27,13 +29,23 @@ body {
   .site-header .navbar-nav .nav-link.active {
     font-weight: 500;
   }
-  
+  .column{
+
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 450px;
+  }
   .content-section {
     background: #ffffff;
-    padding: 10px 20px;
+    padding: 10px 20px 15px 20px;
     border: 1px solid #dddddd;
-    border-radius: 3px;
-    margin-bottom: 20px;
+    border-radius: 1px;
+    margin-bottom: 15px;
+    
+  }
+  .form-group{
+    padding-left: 1px;
   }
   
   .article-title {
