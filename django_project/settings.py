@@ -11,9 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-import django_heroku
-import dj_database_url
-from decouple import config,Csv
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 EMAIL_USE_TLS = config('EMAIL_USE_TLS')
@@ -92,10 +90,15 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-import os
-import django_heroku
-import dj_database_url
-from decouple import config,Csv
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'insta',
+        'USER': 'daud',
+    'PASSWORD':'jinkoos',
+    }
+}
 
 
 # Password validation
@@ -141,6 +144,3 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'insta-home'
 LOGIN_URL = 'login'
-
-# Configure Django App for Heroku.
-django_heroku.settings(locals())
