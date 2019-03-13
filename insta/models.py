@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 class Image(models.Model):
     image=models.ImageField(upload_to = '')
@@ -15,7 +16,10 @@ class Image(models.Model):
 
     def __str__(self):
         return self.name
-    
+
+    def get_absolute_url(self):
+        return reverse('insta-detail',kwargs={'pk': self.pk})
+
     def save_image(self):
         self.save()
 

@@ -11,8 +11,12 @@
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4" >Regiter Now</legend>
-                {{ form|crispy }}
+                <legend class="border-bottom mb-4" style="" >Regiter Now</legend>
+                <!-- {{ form|crispy }} -->
+        {%for fields in form%}
+            {{fields.label}}
+            {{fields}}
+        {%endfor%}
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Sign Up</button>

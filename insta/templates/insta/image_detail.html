@@ -1,0 +1,14 @@
+{% extends "insta/base.html" %}
+{% block content %}
+<article class="media content-section">
+    <img class="rounded-circle article-img" src="{{ object.image.url }}" alt="">
+    <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="#">{{ object.user }}</a>
+            <small class="text-muted">{{ object.date_created|date:"F d, Y" }}</small>
+        </div>
+        <h2 class="article-title">{{ object.name }}</h2>
+        <p class="article-content">{{ object.caption }}</p>
+    </div>
+</article>
+{% endblock content %}
