@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
 from tinymce.models import HTMLField
+from insta.models import Image
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -30,6 +31,7 @@ class UserFollowing(models.Model):
 class UserFollower(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="userfollowedby")
     user_follower= models.ForeignKey(User, on_delete=models.CASCADE, related_name="userfollower")  
+
 
 class Comments(models.Model):
     comment = models.TextField()
