@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 from decouple import config
-
+    
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 EMAIL_HOST = config('EMAIL_HOST')
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'insta.apps.InstaConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
+    'tinymce',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

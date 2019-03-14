@@ -7,6 +7,27 @@
     <h2 class="account-heading">{{ user.username }}</h2>
     <p class="text-secondary">{{ user.email }}</p>
 </div>
+
+<div>
+    {% for image in images  %}
+      <div class="image-card" id=img{{image.id}}>
+        <img src="{{ image.image.url }}" alt="">
+      </div>
+
+    <div class="modal1"> 
+        <div class="image-view">
+            <div class="image">
+                <img src="{{ image.image.url }}" alt="">
+            </div>
+            <div class="desc">
+                <p class="user">{{ image.user.username }}</p>
+                <p class="caption">{{ image.caption }}</p>
+            </div>    
+            <button><i class="far fa-heart"></i></button>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
 

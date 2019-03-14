@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView,DeleteView
 from .models import Image
 from django.contrib.auth.decorators import login_required
@@ -33,7 +33,7 @@ class ImageCreateView(LoginRequiredMixin,CreateView):
         return super().form_valid(form)
 
 
-class ImageUpdateView(LoginRequiredMixin,UpdateView): 
+class ImageUpdateView(LoginRequiredMixin,UserPassesTestMixin,UpdateView): 
     model = Image
     fields = ['image','caption']
     
@@ -42,6 +42,12 @@ class ImageUpdateView(LoginRequiredMixin,UpdateView):
         # form.instance.user = Image.objects.get(user=self.request.user)
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+    def test_func(self):
+        image = self.get_object()
+        if self.request.user == image.user:
+            return True
+        return False    
 
 
 def about(request):
