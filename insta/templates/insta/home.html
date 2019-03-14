@@ -1,10 +1,7 @@
 {% extends "insta/base.html" %}
 {% block content %}
 {% for post in posts %}
-<div class="container">
-    <div class="row">
-        <div class="col col-8"></div>
-    <article class="media content-section">
+<article class="media content-section">
     <img class="rounded-circle article-img" src="{{ post.image.url }}" alt="">
     <div class="media-body">
         <div class="article-metadata">
@@ -15,7 +12,5 @@
         <p class="article-content">{{ post.caption }}</p>
     </div>
 </article>
-</div>
-</div>
 {% endfor %}
 {% endblock content %}

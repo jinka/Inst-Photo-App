@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView,DeleteView
 from .models import Image
 from django.contrib.auth.decorators import login_required
@@ -20,7 +21,7 @@ class ImageListView(ListView):
 
 class ImageDetailView(DetailView): 
     model = Image
-class ImageCreateView(CreateView): 
+class ImageCreateView(LoginRequiredMixin,CreateView): 
     model = Image
     fields = ['image','caption']
     
@@ -29,8 +30,18 @@ class ImageCreateView(CreateView):
         # form.instance.user = Image.objects.get(user=self.request.user)
         form.instance.user = self.request.user
         form.instance.name = self.request.user
-        form.instance.likes = 1
+        return super().form_valid(form)
 
+
+class ImageUpdateView(LoginRequiredMixin,UpdateView): 
+    model = Image
+    fields = ['image','caption']
+    
+
+    def form_valid(self, form):
+        # form.instance.user = Image.objects.get(user=self.request.user)
+        form.instance.user = self.request.user
+        form.instance.name = self.request.user
         return super().form_valid(form)
 
 
