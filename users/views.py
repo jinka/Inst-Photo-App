@@ -4,7 +4,13 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from insta.models import Image
 from decouple import config
-from .email import send_welcome_email
+from django.core.mail import send_mail
+from django.conf import settings
+
+
+def email(request):
+    pass
+    return redirect('redirect to a new page')
 
 def register(request):
     if request.method == 'POST':
@@ -12,11 +18,13 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            email = form.cleaned_data('email')
 
-            recipient = UserRegisterForm(name=name, email=email)
-            recipient.save()
-            send_welcome_email(name,email)
+            subject = 'Thank you for registering to our site'
+            message = ' it  means a world to us '
+            email_from = settings.EMAIL_HOST_USER
+            recipient_list = ['daudishuuti@gmail.com',]
+
+            send_mail( subject, message, email_from, recipient_list )
 
             messages.success(request, f'Your account has been created! You are now able to log in')
             return redirect('login')

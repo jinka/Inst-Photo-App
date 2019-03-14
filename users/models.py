@@ -21,3 +21,21 @@ class Profile(models.Model):
             output_size = (300,300)
             img.thumbnail(output_size)
             img.save(self.image.path)
+
+
+class UserFollowing(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="userfollowto")
+    user_following=models.ForeignKey(User, on_delete=models.CASCADE, related_name="userfollowing")  
+
+class UserFollower(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="userfollowedby")
+    user_follower= models.ForeignKey(User, on_delete=models.CASCADE, related_name="userfollower")  
+
+class Comments(models.Model):
+    comment = models.TextField()
+    posted_on = models.DateTimeField(auto_now=True)
+    image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name='comments')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def save_comment(self):
+        self.save()
