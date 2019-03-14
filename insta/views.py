@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.views.generic import ListView, DetailView, CreateView, UpdateView,DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from .models import Image
 from django.contrib.auth.decorators import login_required
-
+from .email import send_welcome_email
 
 @login_required(login_url='/register/')
 def home(request):

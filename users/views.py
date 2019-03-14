@@ -3,6 +3,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from insta.models import Image
+from decouple import config
+from .email import send_welcome_email
 
 def register(request):
     if request.method == 'POST':
@@ -10,6 +12,12 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
+            email = form.cleaned_data('email')
+
+            recipient = UserRegisterForm(name=name, email=email)
+            recipient.save()
+            send_welcome_email(name,email)
+
             messages.success(request, f'Your account has been created! You are now able to log in')
             return redirect('login')
     else:
