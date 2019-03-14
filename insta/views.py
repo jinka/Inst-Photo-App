@@ -41,7 +41,6 @@ class ImageUpdateView(LoginRequiredMixin,UpdateView):
     def form_valid(self, form):
         # form.instance.user = Image.objects.get(user=self.request.user)
         form.instance.user = self.request.user
-        form.instance.name = self.request.user
         return super().form_valid(form)
 
 
