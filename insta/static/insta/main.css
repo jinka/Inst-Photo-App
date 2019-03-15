@@ -55,9 +55,36 @@ body {
     color: #999;
   }
   button img{
-    height: 18px;
+    height: 18px !important;
     padding: 0 8px 2px;
   }
+  .or {
+    font-size: 13px !important;
+    color: #999;
+    font-weight: 600;
+  }
+  .or::before {
+    content: '';
+    background: #efefef;
+    display: block;
+    height: 2px;
+    width: 110px;
+    position: relative;
+    top: 11px;
+  }
+  .or::after {
+    content: '';
+    background: #efefef;
+    display: block;
+    height: 2px;
+    width: 110px;
+    position: relative;
+    top: 11px;
+    bottom: 10px;
+    left: 160px;
+    
+  }
+
   .column{
 
     float: left;
