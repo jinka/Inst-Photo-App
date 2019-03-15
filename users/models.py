@@ -16,18 +16,6 @@ class Profile(models.Model):
     def save(self,**kwargs):
         super().save()
 
-    @classmethod
-
-    # def search_by_username(cls,search_term):
-    #     insta = cls.objects.filter(user__username__icontains=search_term)
-    #     return insta
-    #     img = Image.open(self.image.path)
-
-    #     if img.height > 300 or img.width > 300:
-    #         output_size = (300,300)
-    #         img.thumbnail(output_size)
-    #         img.save(self.image.path)
-
 
 class UserFollowing(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="userfollowto")
