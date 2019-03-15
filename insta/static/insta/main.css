@@ -13,7 +13,8 @@ body {
   }
   
   .bg-steel {
-    background-color: rgb(206, 194, 194);
+    background-color:white;
+    font: red;
   }
   .nav{
     min-height: 80px;
@@ -37,9 +38,9 @@ body {
     height: 450px;
   }
   .content-section {
-    background: #1a1414;
+    background: white;
     padding: 10px 20px 15px 20px;
-    border: 1px solid #dddddd;
+    border: 3px solid #dddddd;
     border-radius: 1px;
     margin-bottom: 15px;
     

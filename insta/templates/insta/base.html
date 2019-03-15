@@ -23,7 +23,7 @@
 
 <body>
     <header class="site-header">
-        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top" style="height:90px; background-color: cadetblue; color: #000;" >
             <div class="container">
                 <a class="navbar-brand mr-4" href="{% url 'insta-home' %}">Instagram</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
@@ -40,7 +40,7 @@
                     <div class="navbar-nav" style="height:50px" >
                         {% if user.is_authenticated %}
                         <a class="nav-item nav-link" href="{% url 'insta-create' %}">Upload Image</a>
-                        ••••••••••                        <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+                        <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
                         <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                         {% else %}
                         <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>

@@ -16,6 +16,11 @@ class Profile(models.Model):
     def save(self,**kwargs):
         super().save()
 
+    @classmethod
+    
+    def search_by_username(cls,search_term):
+        insta = cls.objects.filter(user__username__icontains=search_term)
+        return insta
         img = Image.open(self.image.path)
 
         if img.height > 300 or img.width > 300:
