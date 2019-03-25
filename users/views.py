@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
@@ -22,7 +22,7 @@ def register(request):
             subject = 'Thank you for registering to our site'
             message = ' it  means a world to us '
             email_from = settings.EMAIL_HOST_USER
-            recipient_list = ['daudishuuti@gmail.com',]
+            recipient_list = ['daudishuuti@gmail.com',settings.EMAIL_HOST_USER]
 
             send_mail( subject, message, email_from, recipient_list )
 
@@ -31,7 +31,6 @@ def register(request):
     else:
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
-
 
 @login_required
 def profile(request):

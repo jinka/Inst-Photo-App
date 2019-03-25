@@ -10,6 +10,7 @@ def home(request):
     context = {
         'posts': Image.objects.all()
     }
+ 
     return render(request,'insta/home.html',context)
 
 class ImageListView(ListView):
